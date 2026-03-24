@@ -1,7 +1,6 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import {shallow} from 'enzyme';
 import React from 'react';
 
 import ShowMore from 'components/post_view/show_more/show_more';
@@ -84,25 +83,33 @@ describe('components/post_view/ShowMore', () => {
     });
 
     test('should match snapshot, PostMessageView on collapsed view with ellipsis overflow', () => {
-        const wrapper = shallow(
+        const ref = React.createRef<ShowMore>();
+        const {container} = renderWithContext(
             <ShowMore
                 {...baseProps}
                 overflowType='ellipsis'
+                ref={ref}
             />,
         );
-        wrapper.setState({isOverflow: true, isCollapsed: true});
-        expect(wrapper).toMatchSnapshot();
+        act(() => {
+            ref.current?.setState({isOverflow: true, isCollapsed: true});
+        });
+        expect(container).toMatchSnapshot();
     });
 
     test('should match snapshot, PostMessageView on expanded view with ellipsis overflow', () => {
-        const wrapper = shallow(
+        const ref = React.createRef<ShowMore>();
+        const {container} = renderWithContext(
             <ShowMore
                 {...baseProps}
                 overflowType='ellipsis'
+                ref={ref}
             />,
         );
-        wrapper.setState({isOverflow: true, isCollapsed: false});
-        expect(wrapper).toMatchSnapshot();
+        act(() => {
+            ref.current?.setState({isOverflow: true, isCollapsed: false});
+        });
+        expect(container).toMatchSnapshot();
     });
 
     test('should match snapshot, PostMessageView on expanded view with compactDisplay', () => {
