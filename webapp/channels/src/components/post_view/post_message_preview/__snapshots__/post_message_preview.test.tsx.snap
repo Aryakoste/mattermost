@@ -68,7 +68,7 @@ exports[`PostMessagePreview direct and group messages should render preview for 
       </div>
     </div>
     <Connect(PostMessageView)
-      maxHeight={105}
+      maxHeight={200}
       overflowType="ellipsis"
       post={
         Object {
@@ -165,7 +165,7 @@ exports[`PostMessagePreview direct and group messages should render preview for 
       </div>
     </div>
     <Connect(PostMessageView)
-      maxHeight={105}
+      maxHeight={200}
       overflowType="ellipsis"
       post={
         Object {
@@ -266,7 +266,7 @@ exports[`PostMessagePreview nested previews should render file preview 1`] = `
       </div>
     </div>
     <Connect(PostMessageView)
-      maxHeight={105}
+      maxHeight={200}
       overflowType="ellipsis"
       post={
         Object {
@@ -390,7 +390,7 @@ exports[`PostMessagePreview nested previews should render opengraph preview 1`] 
       </div>
     </div>
     <Connect(PostMessageView)
-      maxHeight={105}
+      maxHeight={200}
       overflowType="ellipsis"
       post={
         Object {
@@ -520,7 +520,7 @@ exports[`PostMessagePreview should not render bot icon 1`] = `
       </div>
     </div>
     <Connect(PostMessageView)
-      maxHeight={105}
+      maxHeight={200}
       overflowType="ellipsis"
       post={
         Object {
@@ -627,7 +627,7 @@ exports[`PostMessagePreview should render bot icon 1`] = `
       </div>
     </div>
     <Connect(PostMessageView)
-      maxHeight={105}
+      maxHeight={200}
       overflowType="ellipsis"
       post={
         Object {
@@ -729,7 +729,7 @@ exports[`PostMessagePreview should render correctly 1`] = `
       </div>
     </div>
     <Connect(PostMessageView)
-      maxHeight={105}
+      maxHeight={200}
       overflowType="ellipsis"
       post={
         Object {
@@ -828,7 +828,7 @@ exports[`PostMessagePreview show render without preview when preview posts becom
       </div>
     </div>
     <Connect(PostMessageView)
-      maxHeight={105}
+      maxHeight={200}
       overflowType="ellipsis"
       post={
         Object {

@@ -176,7 +176,7 @@ const PostMessagePreview = (props: Props) => {
                 <PostMessageView
                     post={previewPost}
                     overflowType='ellipsis'
-                    maxHeight={110}
+                    maxHeight={200}
                 />
                 {urlPreview}
                 {fileAttachmentPreview}

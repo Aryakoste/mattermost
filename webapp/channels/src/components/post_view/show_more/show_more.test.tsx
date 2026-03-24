@@ -57,6 +57,28 @@ describe('components/post_view/ShowMore', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
+    test('should match snapshot, PostMessageView on collapsed view with ellipsis overflow', () => {
+        const wrapper = shallow(
+            <ShowMore
+                {...baseProps}
+                overflowType='ellipsis'
+            />,
+        );
+        wrapper.setState({isOverflow: true, isCollapsed: true});
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    test('should match snapshot, PostMessageView on expanded view with ellipsis overflow', () => {
+        const wrapper = shallow(
+            <ShowMore
+                {...baseProps}
+                overflowType='ellipsis'
+            />,
+        );
+        wrapper.setState({isOverflow: true, isCollapsed: false});
+        expect(wrapper).toMatchSnapshot();
+    });
+
     test('should match snapshot, PostMessageView on expanded view with compactDisplay', () => {
         const wrapper = shallow(
             <ShowMore

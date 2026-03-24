@@ -189,6 +189,56 @@ exports[`components/post_view/ShowMore should match snapshot, PostMessageView on
 </div>
 `;
 
+exports[`components/post_view/ShowMore should match snapshot, PostMessageView on collapsed view with ellipsis overflow 1`] = `
+<div
+  className="post-message post-message--collapsed post-message-preview--overflow"
+>
+  <div
+    className="post-message__text-container"
+    style={
+      Object {
+        "maxHeight": undefined,
+      }
+    }
+  />
+  <button
+    className="post-preview-collapse__show-more-button color--link"
+    id="showMoreButton"
+    onClick={[Function]}
+  >
+    <MemoizedFormattedMessage
+      defaultMessage="Show more"
+      id="post_info.message.show_more"
+    />
+  </button>
+</div>
+`;
+
+exports[`components/post_view/ShowMore should match snapshot, PostMessageView on expanded view with ellipsis overflow 1`] = `
+<div
+  className="post-message post-message--expanded post-message-preview--overflow"
+>
+  <div
+    className="post-message__text-container"
+    style={
+      Object {
+        "maxHeight": undefined,
+      }
+    }
+  />
+  <button
+    className="post-preview-collapse__show-more-button color--link"
+    id="showMoreButton"
+    onClick={[Function]}
+  >
+    <MemoizedFormattedMessage
+      defaultMessage="Show less"
+      id="post_info.message.show_less"
+    />
+  </button>
+</div>
+`;
+
 exports[`components/post_view/ShowMore should match snapshot, PostMessageView on expanded view with compactDisplay 1`] = `
 <div
   className="post-message post-message--expanded post-message--overflow"
