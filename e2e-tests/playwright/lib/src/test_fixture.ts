@@ -18,16 +18,27 @@ import {
 } from './flag';
 import {getBlobFromAsset, getFileFromAsset} from './file';
 import {
+    configureAIBridgeMock,
+    createMockAIAgent,
     createNewUserProfile,
+    createNewTeam,
     createRandomChannel,
     createRandomPost,
     createRandomTeam,
     createRandomUser,
+    createUserWithAttributes,
+    enableAIBridgeTestMode,
+    getAIBridgeMock,
     getAdminClient,
     initSetup,
     isOutsideRemoteUserHour,
     makeClient,
     mergeWithOnPremServerConfig,
+    recapCompletion,
+    resetAIBridgeMock,
+    rewriteCompletion,
+    installAndEnablePlugin,
+    isPluginActive,
 } from './server';
 import {
     toBeFocusedWithFocusVisible,
@@ -88,6 +99,15 @@ export class PlaywrightExtended {
     readonly getAdminClient;
     readonly mergeWithOnPremServerConfig;
     readonly initSetup;
+    readonly enableAIBridgeTestMode;
+    readonly configureAIBridgeMock;
+    readonly getAIBridgeMock;
+    readonly resetAIBridgeMock;
+    readonly createMockAIAgent;
+    readonly rewriteCompletion;
+    readonly recapCompletion;
+    readonly installAndEnablePlugin;
+    readonly isPluginActive;
 
     // ./test_action
     readonly toBeFocusedWithFocusVisible;
@@ -102,6 +122,7 @@ export class PlaywrightExtended {
 
     // ./server
     readonly createNewUserProfile;
+    readonly createNewTeam;
     readonly isOutsideRemoteUserHour;
     readonly makeClient;
 
@@ -146,7 +167,16 @@ export class PlaywrightExtended {
         this.initSetup = initSetup;
         this.getAdminClient = getAdminClient;
         this.mergeWithOnPremServerConfig = mergeWithOnPremServerConfig;
+        this.enableAIBridgeTestMode = enableAIBridgeTestMode;
+        this.configureAIBridgeMock = configureAIBridgeMock;
+        this.getAIBridgeMock = getAIBridgeMock;
+        this.resetAIBridgeMock = resetAIBridgeMock;
+        this.createMockAIAgent = createMockAIAgent;
+        this.rewriteCompletion = rewriteCompletion;
+        this.recapCompletion = recapCompletion;
         this.isOutsideRemoteUserHour = isOutsideRemoteUserHour;
+        this.installAndEnablePlugin = installAndEnablePlugin;
+        this.isPluginActive = isPluginActive;
 
         // ./test_action
         this.toBeFocusedWithFocusVisible = toBeFocusedWithFocusVisible;
@@ -167,6 +197,7 @@ export class PlaywrightExtended {
 
         // ./server
         this.createNewUserProfile = createNewUserProfile;
+        this.createNewTeam = createNewTeam;
         this.makeClient = makeClient;
 
         // ./visual
@@ -183,6 +214,7 @@ export class PlaywrightExtended {
             post: createRandomPost,
             team: createRandomTeam,
             user: createRandomUser,
+            userWithAttributes: createUserWithAttributes,
         };
 
         this.hasSeenLandingPage = async () => {
