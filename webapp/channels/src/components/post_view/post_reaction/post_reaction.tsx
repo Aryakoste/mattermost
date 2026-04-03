@@ -43,7 +43,7 @@ export default function PostReaction({
     const intl = useIntl();
 
     const handleEmojiClick = useCallback((emoji: Emoji) => {
-        const emojiName = getEmojiName(emoji).toLowerCase();
+        const emojiName = getEmojiName(emoji);
         toggleReaction(postId, emojiName);
 
         setShowEmojiPicker(false);
