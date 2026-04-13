@@ -855,21 +855,19 @@ func (a *App) UpdatePost(rctx request.CTX, receivedUpdatedPost *model.Post, upda
 		newPost.IsPinned = receivedUpdatedPost.IsPinned
 		newPost.HasReactions = receivedUpdatedPost.HasReactions
 
-		// Merge props instead of replacing to preserve attachments and interactive button URLs
-		if receivedUpdatedPost.GetProps() == nil {
-			newPost.SetProps(oldPost.GetProps())
+		if receivedUpdatedPost.GetProps() != nil {
+			newPost.SetProps(receivedUpdatedPost.GetProps())
 		} else {
-			mergedProps := make(model.StringInterface)
-			for k, v := range oldPost.GetProps() {
-				mergedProps[k] = v
-			}
-			for k, v := range receivedUpdatedPost.GetProps() {
-				mergedProps[k] = v
-			}
-			newPost.SetProps(mergedProps)
+			newPost.SetProps(oldPost.GetProps())
 		}
 
-		if receivedUpdatedPost.FileIds != nil || len(oldPost.FileIds) > 0 {
+		if newPost.GetProp(model.PostPropsAttachments) == nil {
+			if oldAttachments := oldPost.GetProp(model.PostPropsAttachments); oldAttachments != nil {
+				newPost.AddProp(model.PostPropsAttachments, oldAttachments)
+			}
+		}
+
+		if receivedUpdatedPost.FileIds != nil {
 			var fileIds []string
 			fileIds, appErr = a.processPostFileChanges(rctx, receivedUpdatedPost, oldPost, updatePostOptions)
 			if appErr != nil {
